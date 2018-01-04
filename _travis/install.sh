@@ -42,7 +42,7 @@ composer global require --no-interaction codeception/codeception:2.3.4 facebook/
 joomla plugin:install joomlatools/console-joomlatools:dev-master
 
 echo "Installing Joomla $JOOMLA"
-joomla site:create --projects-dir=$PROJECT_DIR --release=$JOOMLA --symlink=textman --www=$DOCUMENTROOT --mysql-login="root" test
+joomla site:create --projects-dir=$PROJECT_DIR --release=3.7.5 --www=$DOCUMENTROOT --mysql-login="root" test
 
 echo "Starting the PHP webserver"
 cd $DOCUMENTROOT/textman
