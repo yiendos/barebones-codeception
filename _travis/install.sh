@@ -45,7 +45,7 @@ echo "Installing Joomla $JOOMLA"
 joomla site:create --projects-dir=$PROJECT_DIR --release=3.7.5 --www=$DOCUMENTROOT --mysql-login="root" test
 
 echo "Starting the PHP webserver"
-cd $DOCUMENTROOT/textman
+cd $DOCUMENTROOT/test
 php -S localhost:8080 > /dev/null 2>&1 &
 
 cd $TRAVIS_BUILD_DIR
