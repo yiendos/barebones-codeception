@@ -40,10 +40,11 @@ env:
                       binary: '/usr/bin/google-chrome-stable'
                 AcceptanceHelper:
                   email_url: 'http://localhost:8025'
-                DbHelper:
-                  dsn: 'mysql:host=127.0.0.1;dbname=sites_test'
+                Db:
+                  dsn: 'mysql:host=localhost;dbname=sites_test'
                   user: 'root'
                   password: ''
+                  dump: 'tests/_data/dump.sql'
                   populate: true
                   cleanup: true
                   populator: 'mysql -u $user -h $host $dbname < $dump'
