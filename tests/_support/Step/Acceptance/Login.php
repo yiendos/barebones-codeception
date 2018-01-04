@@ -1,7 +1,7 @@
 <?php
 namespace Step\Acceptance;
 
-use Page\loginElements as loginElement;
+use Page\LoginElements as LoginElements;
 
 class Login extends \WebGuy
 {
@@ -22,12 +22,12 @@ class Login extends \WebGuy
 
         $I->amGoingTo('Login as ' . $config->username);
 
-        $I->fillField(loginElement::$username_field, $config->username);
-        $I->fillField(loginElement::$password_field, $config->password);
-        $I->click(loginElement::$login_button);
+        $I->fillField(LoginElements::$username_field, $config->username);
+        $I->fillField(LoginElements::$password_field, $config->password);
+        $I->click(LoginElements::$login_button);
 
-        $I->see(sprintf(loginElement::$login_confirm, $config->username));
-        $I->dontSee(loginElement::$login_error);
+        $I->see(sprintf(LoginElements::$login_confirm, $config->username));
+        $I->dontSee(LoginElements::$login_error);
         $I->expect('To be logged in now');
 
         $I->amOnPage('/');
@@ -39,8 +39,8 @@ class Login extends \WebGuy
         
         $I = $this;
         $I->amGoingTo('Logout now');
-        $I->click(loginElement::$logout_link);
-        $I->see(loginElement::$login_link);
+        $I->click(LoginElements::$logout_link);
+        $I->see(LoginElements::$login_link);
         $I->expect('To be logged out now');
     }
 
@@ -51,12 +51,12 @@ class Login extends \WebGuy
         $I = $this;
         $I->amOnPage('/administrator');
         $I->amGoingTo('Login in now');
-        $I->fillField(loginElement::$username_field, $config->admin_username);
-        $I->fillField(loginElement::$admin_password_field, $config->admin_password);
-        $I->click(loginElement::$login_button);
+        $I->fillField(LoginElements::$username_field, $config->admin_username);
+        $I->fillField(LoginElements::$admin_password_field, $config->admin_password);
+        $I->click(LoginElements::$login_button);
 
-        $I->see(loginElement::$admin_login_config);
-        $I->dontSee(loginElement::$login_button);
+        $I->see(LoginElements::$admin_login_config);
+        $I->dontSee(LoginElements::$login_button);
 
         $I->expect('To be logged into the admin side now');
 
