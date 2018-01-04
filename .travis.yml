@@ -30,8 +30,7 @@ before_install:
 - $TRAVIS_BUILD_DIR/_travis/install.sh
 
 script:
-- cd $TRAVIS_BUILD_DIR
-- bin/codecept run acceptance --env=travis
+- codecept run acceptance --env=travis
 
 matrix:
   fast_finish: true
