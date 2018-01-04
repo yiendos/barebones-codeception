@@ -29,10 +29,6 @@ before_install:
 - chmod +x $TRAVIS_BUILD_DIR/_travis/install.sh
 - $TRAVIS_BUILD_DIR/_travis/install.sh
 
-before_script:
- - chmod +x $TRAVIS_BUILD_DIR/_travis/setup.sh
- - $TRAVIS_BUILD_DIR/_travis/setup.sh
-
 script:
 - cd $TRAVIS_BUILD_DIR
 - bin/codecept run acceptance --env=travis
