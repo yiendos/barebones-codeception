@@ -12,7 +12,7 @@ pear install phing/phing
 phpenv rehash
 
 echo "Set environment variables"
-source $TRAVIS_BUILD_DIR/scripts/travis/env.sh
+source $TRAVIS_BUILD_DIR/_travis/env.sh
 
 echo "Configure PHP"
 phpenv config-rm xdebug.ini
