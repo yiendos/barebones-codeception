@@ -35,6 +35,9 @@ unzip /tmp/chromedriver.zip -d /home/travis/
 chmod +x /home/travis/chromedriver
 /home/travis/chromedriver --disable-impl-side-painting --verbose --log-path=/tmp/chromedriver.log --url-base=/wd/hub &
 
+echo "Starting MailCatcher"
+gem install --no-ri --no-rdoc mailcatcher
+mailcatcher > /dev/null 2>&1 &
 
 echo "Installing the test dependencies"
 mkdir -p $DOCUMENTROOT $PROJECT_DIR

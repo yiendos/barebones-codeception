@@ -48,4 +48,6 @@ env:
                   populate: true
                   cleanup: true
                   populator: 'mysql -u $user -h $host $dbname < $dump'
+                Helper\MailCatcherHelper:
+                  email_url: 'http://127.0.0.1:1080/messages'
 
