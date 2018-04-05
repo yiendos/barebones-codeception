@@ -1,7 +1,6 @@
 <?php
 
 use Page\LoginElements as LoginElements;
-use Step\Acceptance\Login as LoginSteps;
 
 class LoginCest
 {
@@ -50,5 +49,4 @@ class LoginCest
 
         $I->LogoutAdminEnd();
     }
-
 }

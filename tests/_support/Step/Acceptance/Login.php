@@ -87,5 +87,7 @@ class Login extends \WebGuy
         $I->click(LoginElements::$forgot_submit_button);
         $I->see(LoginElements::$forgot_confirm_text);
         $I->dontSee(LoginElements::$forgot_error_text);
+
+        $I->expect('A forgotten email to be sent');
     }
 }

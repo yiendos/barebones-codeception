@@ -22,8 +22,8 @@ modules:
             dsn: 'mysql:host=33.33.33.58;dbname=sites_joomlatools'
             user: 'root'
             password: 'root'
-            populate: false # run populator before all tests
-            cleanup: false # run populator before each test
-            #populator: 'mysql -u $user -p$password -h $host $dbname < $dump'
+            populate: true # run populator before all tests
+            cleanup: true # run populator before each test
+            populator: 'mysql -u $user -p$password -h $host $dbname < $dump'
 
 
