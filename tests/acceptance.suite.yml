@@ -12,9 +12,9 @@ modules:
             email_url: 'http://33.33.33.58:1080/messages'
     config:
         WebDriver:
-            url: 'http://joomlatools.dev:8080/'
+            url: 'http://joomlatools.test/'
             browser: 'chrome'
-            window_size: '1024x768'
+            window_size: '1024x1024'
         REST:
             depends: PhpBrowser
             part: Json
@@ -25,5 +25,29 @@ modules:
             populate: false # run populator before all tests
             cleanup: false # run populator before each test
             #populator: 'mysql -u $user -p$password -h $host $dbname < $dump'
-
+env:
+    travis:
+         modules:
+            config:
+                WebDriver:
+                  url: 'http://localhost:8080/'
+                  browser: 'chrome'
+                  port: 9515
+                  window_size: false
+                  capabilities:
+                    chromeOptions:
+                      args: ['--headless', '--disable-gpu', 'window-size=1920x1080']
+                      binary: '/usr/bin/google-chrome-stable'
+                AcceptanceHelper:
+                  email_url: 'http://localhost:8025'
+                Db:
+                  dsn: 'mysql:host=localhost;dbname=sites_test'
+                  user: 'root'
+                  password: ''
+                  dump: 'tests/_data/dump.sql'
+                  populate: true
+                  cleanup: true
+                  populator: 'mysql -u $user -h $host $dbname < $dump'
+                Helper\MailCatcherHelper:
+                  email_url: 'http://127.0.0.1:1080/messages'
 

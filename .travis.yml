@@ -1,0 +1,36 @@
+language: php
+sudo: false
+
+php:
+  - 7.1
+
+services:
+  - mysql
+
+addons:
+  chrome: stable
+  apt:
+    packages:
+      - default-jre
+
+branches:
+  only:
+    - feature/1-travis
+    
+cache:
+  directories:
+    - code/vendor
+    - $HOME/.composer/cache
+
+before_install:
+- export PATH=$PATH:/home/travis/.composer/vendor/bin/
+- export DOCUMENTROOT=/tmp/www/
+- export PROJECT_DIR=$(dirname "$TRAVIS_BUILD_DIR")
+- chmod +x $TRAVIS_BUILD_DIR/_travis/install.sh
+- $TRAVIS_BUILD_DIR/_travis/install.sh
+
+script:
+- codecept run acceptance --env=travis --debug
+
+matrix:
+  fast_finish: true
