@@ -3,6 +3,8 @@ namespace Page;
 
 class LoginElements
 {
+    //front end
+
     public static $login_link = 'Log in';
     
     public static $username_field = 'input[name="username"]';
@@ -23,6 +25,14 @@ class LoginElements
 
     public static $admin_password_field = 'input[name="passwd"]';
 
+
+    //admin side
+
     public static $admin_login_config = 'Control Panel';
-    
+
+    public static $admin_user_drop_down = "//ul[@class='nav nav-user pull-right']//li//a[@class='dropdown-toggle']";
+
+    public static $admin_logout = "//li[@class='dropdown open']/ul[@class='dropdown-menu']//a[text() = 'Logout']";
+
+    public static $admin_login = 'mod-login-username';
 }

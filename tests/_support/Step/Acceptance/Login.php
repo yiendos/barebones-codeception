@@ -33,7 +33,7 @@ class Login extends \WebGuy
         $I->amOnPage('/');
     }
 
-    public function logoutFrontEnd($customisation = array())
+    public function LogoutFrontEnd($customisation = array())
     {
         $config = (object) array_merge($this->_defaults, $customisation);
         
@@ -44,7 +44,7 @@ class Login extends \WebGuy
         $I->expect('To be logged out now');
     }
 
-    public function loginAdminEnd($customisation = array())
+    public function LoginAdminEnd($customisation = array())
     {
         $config = (object) array_merge($this->_defaults, $customisation);
 
@@ -59,6 +59,19 @@ class Login extends \WebGuy
         $I->dontSee(LoginElements::$login_button);
 
         $I->expect('To be logged into the admin side now');
+    }
 
+    public function LogoutAdminEnd($customisation = array())
+    {
+        $config = (object) array_merge($this->_defaults, $customisation);
+
+        $I = $this;
+        $I->amOnPage('administrator/');
+        $I->amGoingTo('Log out now');
+        $I->click(['xpath' => LoginElements::$admin_user_drop_down]);
+        $I->waitForElement(['xpath' => LoginElements::$admin_logout]);
+        $I->click(['xpath' => LoginElements::$admin_logout]);
+        $I->waitForElement(['id' => LoginElements::$admin_login]);
+        $I->waitForText('Log in');
     }
 }
