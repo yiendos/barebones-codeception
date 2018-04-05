@@ -12,7 +12,7 @@ modules:
             email_url: 'http://33.33.33.58:1080/messages'
     config:
         WebDriver:
-            url: 'http://joomlatools.dev:8080/'
+            url: 'http://joomlatools.test'
             browser: 'chrome'
             window_size: '1024x768'
         REST:
