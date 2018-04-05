@@ -25,6 +25,18 @@ class LoginElements
 
     public static $admin_password_field = 'input[name="passwd"]';
 
+    public static $forgot_password_text = 'Forgot your password?';
+
+    public static $forgot_email_input = 'input#jform_email';
+
+    public static $forgot_confirm_text = 'An email has been sent to your email address.';
+
+    public static $forgot_error_text = 'Reset password failed: Invalid email address';
+
+    public static $forgot_submit_button = 'Submit';
+
+    public static $forgot_email_subject = 'Your joomlatools password reset request';
+
 
     //admin side
 

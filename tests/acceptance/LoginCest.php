@@ -1,6 +1,7 @@
 <?php
 
 use Page\LoginElements as LoginElements;
+use Step\Acceptance\Login as LoginSteps;
 
 class LoginCest
 {
@@ -32,6 +33,13 @@ class LoginCest
         $I->wait(2);
 
         $I->LogoutFrontEnd();
+    }
+
+    public function ForgottenPassword(\Step\Acceptance\Login $I, \Codeception\Scenario $scenario)
+    {
+        $I->RequestPasswordReminder();
+
+        $I->checkEmails(array('email' => "<user@example.com>", 'search' => 'subject', 'value' => LoginElements::$forgot_email_subject));
     }
 
     public function LoginAdminEnd(\Step\Acceptance\Login $I, \Codeception\Scenario $scenario)

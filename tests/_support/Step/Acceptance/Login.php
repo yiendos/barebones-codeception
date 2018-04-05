@@ -7,7 +7,7 @@ class Login extends \WebGuy
 {
     protected $_defaults = array(
         'username'          => 'user',
-        'email'             => 'user',
+        'email'             => 'user@example.com',
         'password'          => 'user',
         'admin_username'    => 'admin',
         'admin_password'    => 'admin'
@@ -73,5 +73,19 @@ class Login extends \WebGuy
         $I->click(['xpath' => LoginElements::$admin_logout]);
         $I->waitForElement(['id' => LoginElements::$admin_login]);
         $I->waitForText('Log in');
+    }
+
+    public function RequestPasswordReminder($customisation = array())
+    {
+        $config = (object) array_merge($this->_defaults, $customisation);
+
+        $I = $this;
+
+        $I->amOnPage('/');
+        $I->click(LoginElements::$forgot_password_text);
+        $I->fillField('input#jform_email', $config->email);
+        $I->click(LoginElements::$forgot_submit_button);
+        $I->see(LoginElements::$forgot_confirm_text);
+        $I->dontSee(LoginElements::$forgot_error_text);
     }
 }
