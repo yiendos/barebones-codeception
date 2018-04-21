@@ -22,7 +22,7 @@ class LoginCest
 
         if ($scenario->current('env') == 'travis')
         {
-            $this->site = $configSettings['env']['travis']['modules']['config']['WebDriver']['site'];
+            $this->site = $this->settings['env']['travis']['modules']['config']['WebDriver']['site'];
         }
     }
 
