@@ -2,7 +2,7 @@
 
 This is designed to be a bare bones codeception acceptance suite, that should be plug and play for any Joomla component. All you need to do is run the following Joomlatools Console Command:
 
-`joomla codeception:init codeception`
+`joomla codeception:bootstrap codeception`
 
 This will bring in the necessary site files, configure the suite and will test your host machine to see if it is correctly configured for codeception. 
 
